@@ -21,8 +21,8 @@ namespace SistemaLocadoraDeVeiculos
 
         public override string ToString()
         {
-            return $"CLIENTE\n" +
-                $"{base.ToString()}\n" +
+            return
+                $"\n{base.ToString()}\n" +
                 $"Telefone: {this.Telefone.ToString()}\n" +
                 $"Endereço: {this.Endereco.ToString()}";
         }

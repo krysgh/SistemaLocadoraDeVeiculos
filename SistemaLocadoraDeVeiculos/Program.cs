@@ -1,9 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using SistemaLocadoraDeVeiculos;
+using System.Runtime.CompilerServices;
 
 
 /*
+  
+testes
+
 Cliente c = new Cliente("Roberto", "Carlos", 'M', Convert.ToDateTime("20/12/2000"), new Telefone(16, 991230978), new Endereco("Morada do Sol", 12, "Centro", "Florianópolis", "São Paulo", "Brasil", 13756000));
 
 Carro carro = new Carro("ABCDEF","Ford","K",2018,"Azul",1499.99,250,false,true,4,true);
@@ -22,22 +26,6 @@ void AvisoOpcaoInexistente()
     Console.ResetColor();
 }
 
-Veiculo CadastrarInfoGeralVeiculo(Veiculo v)
-{
-    Console.Write("Informe a placa do veículo: ");
-    v.SetPlaca(Console.ReadLine()!);
-    Console.Write("Informe a marca do veículo: ");
-    v.SetMarca(Console.ReadLine()!);
-    Console.Write("Informe o modelo do veículo: ");
-    v.SetModelo(Console.ReadLine()!);
-    Console.Write("Informe a cor do veículo: ");
-    v.SetCor(Console.ReadLine()!);
-    Console.Write("Informe o valor da diária do veículo: ");
-    v.SetValorDaDiaria(Convert.ToDouble(Console.ReadLine()));
-
-    return v;
-}
-
 Locadora locadora = new Locadora();
 int opMenu, tipoVeiculo;
 
@@ -46,11 +34,10 @@ do
     Console.Write("1 - Cadastrar veículo\n" +
         "2 - Cadastrar cliente\n" +
         "3 - Registrar locação\n" +
-        "4 - Calcular valor total\n" +
-        "5 - Listar veículos cadastrados\n" +
-        "6 - Listar clientes cadastrados\n" +
-        "7 - Listar locações\n" +
-        "8 - Encerrar programa\n\n" +
+        "4 - Listar veículos cadastrados\n" +
+        "5 - Listar clientes cadastrados\n" +
+        "6 - Listar locações\n" +
+        "7 - Encerrar programa\n\n" +
         "Informe a opção desejada: ");
     opMenu = Convert.ToInt32(Console.ReadLine()!);
     Console.Clear();
@@ -218,19 +205,19 @@ do
             int dias = Convert.ToInt32(Console.ReadLine()!);
 
             locadora.AlugarVeiculo(nomeCliente, sobrenomeCliente, marcaVeiculo, modeloVeiculo, dias);
+            Console.ReadKey();
+            Console.Clear();
             break;
         case 4:
-            break;
-        case 5:
             locadora.ListarVeiculosCadastrados();
             break;
-        case 6:
+        case 5:
             locadora.ListarClientesCadastrados();
             break;
-        case 7:
+        case 6:
             locadora.ListarLocacoes();
             break;
-        case 8:
+        case 7:
             Console.WriteLine("Encerrando programa...");
             break;
         default:
@@ -239,6 +226,6 @@ do
     }
 
 
-} while (opMenu != 8);
+} while (opMenu != 7);
 
 

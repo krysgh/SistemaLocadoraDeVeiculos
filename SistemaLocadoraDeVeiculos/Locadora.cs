@@ -32,38 +32,53 @@ namespace SistemaLocadoraDeVeiculos
             this.ClientesCadastrados.Add(cliente);
         }
 
+        public bool ClienteCadastrado(string nome, string sobrenome)
+        {
+            foreach (Cliente aux in ClientesCadastrados)
+            {
+                if (aux.GetNome() == nome && aux.GetSobrenome() == sobrenome)
+                    return true;
+                
+            }
+            
+                return false;
+        }
+        public bool VeiculoCadastrado(string marca, string modelo)
+        {
+            foreach (Veiculo aux in VeiculosCadastrados)
+            {
+                if (aux.GetMarca() == marca && aux.GetModelo() == modelo)
+                    return true;
+
+            }
+
+            return false;
+        }
+
+
         public void AlugarVeiculo(string nome, string sobrenome, string marca, string modelo, int dias)
         {
-            Cliente cliente;
-            Veiculo veiculo;
+            Cliente cliente = null;
+            Veiculo veiculo = null;
 
             foreach(Cliente c in ClientesCadastrados)
             {
-                if(c.GetNome() == nome && c.GetSobrenome() == sobrenome)
-                {
+                if (ClienteCadastrado(nome, sobrenome))
                     cliente = c;
-                }
                 else
-                {
-                    Console.WriteLine("Cliente não encontrado!\n");
-                }
+                    Console.WriteLine("Cliente não cadastrado!\n");
             }
 
-            foreach (Veiculo v in VeiculosCadastrados)
+            foreach(Veiculo v in VeiculosCadastrados)
             {
-                if (v.GetMarca() == marca && v.GetModelo() == modelo)
-                {
+                if(VeiculoCadastrado(marca, modelo))
                     veiculo = v;
-                }
                 else
-                {
-                    Console.WriteLine("Veículo não encontrado!\n");
-                }
+                    Console.WriteLine("Veículo não cadastrado!\n");
             }
-
-            //this.Alugueis.Add(new Aluguel(cliente, veiculo, dias));
+                
+                this.Alugueis.Add(new Aluguel(cliente, veiculo, dias));
         }
-
 
         public void ListarVeiculosCadastrados()
         {
