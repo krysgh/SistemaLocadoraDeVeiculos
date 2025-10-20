@@ -31,7 +31,7 @@ namespace SistemaLocadoraDeVeiculos
 
         public int GetNumeroDePortas(){return this.NumeroDePortas;}
         public bool GetTemArCondicionado(){return this.TemArCondicionado;}
-        public bool GetTemDireaoHidraulica(){return this.TemDirecaoHidraulica;}
+        public bool GetTemDirecaoHidraulica(){return this.TemDirecaoHidraulica;}
         public int GetNumeroAirBags(){return this.NumeroAirBags;}
         public bool GetTemMultimidia(){ return this.TemMultiMidia; }
 
